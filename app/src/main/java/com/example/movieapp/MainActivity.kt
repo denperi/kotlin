@@ -8,12 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
 import com.example.movieapp.viewmodel.MovieViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
-import androidx.compose.ui.unit.dp
+import androidx.compose.material.icons.filled.Person
+
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +37,9 @@ fun MovieApp() {
             composable("movieList") { MovieListScreen(navController) }
             composable("movieDetail/{movieId}") { backStackEntry ->
                 val movieId = backStackEntry.arguments?.getString("movieId")?.toInt() ?: 1
-                MovieDetailScreen(movieId)
+                MovieDetailScreen(movieId, navController)
             }
+            composable("profile") { ProfileScreen() }
         }
     }
 }
@@ -47,7 +50,7 @@ fun BottomNavigationBar(navController: NavController) {
         NavigationBarItem(
             icon = { Icon(Icons.Filled.List, contentDescription = "Movies") },
             label = { Text("Фильмы") },
-            selected = true,
+            selected = navController.currentDestination?.route == "movieList",
             onClick = {
                 navController.navigate("movieList") {
                     popUpTo("movieList") { saveState = true }
@@ -55,6 +58,25 @@ fun BottomNavigationBar(navController: NavController) {
                 }
             }
         )
-        // Другие элементы навигации можно добавить здесь
+        NavigationBarItem(
+            icon = { Icon(Icons.Filled.Info, contentDescription = "Подробнее") },
+            label = { Text("Подробнее") },
+            selected = navController.currentDestination?.route == "movieDetail",
+            onClick = {
+                MovieViewModel.currentMovieId.value?.let { currentMovieId ->
+                    navController.navigate("movieDetail/$currentMovieId")
+                } ?: run {
+                    navController.navigate("movieDetail/1")
+                }
+            }
+        )
+        NavigationBarItem(
+            icon = { Icon(Icons.Filled.Person, contentDescription = "Профиль") },
+            label = { Text("Профиль") },
+            selected = navController.currentDestination?.route == "profile",
+            onClick = {
+                navController.navigate("profile")
+            }
+        )
     }
 }

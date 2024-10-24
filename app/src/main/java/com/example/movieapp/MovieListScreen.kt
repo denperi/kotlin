@@ -12,6 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.movieapp.data.Movie
 import com.example.movieapp.viewmodel.MovieViewModel
 
 @Composable
@@ -35,7 +36,7 @@ fun MovieListScreen(
 
 @Composable
 fun MovieListItem(
-    movie: com.example.movieapp.data.Movie,
+    movie: Movie,
     navController: NavController,
     movieViewModel: MovieViewModel // Передаем ViewModel для выбора фильма
 ) {

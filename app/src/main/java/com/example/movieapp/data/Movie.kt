@@ -4,7 +4,7 @@ data class Movie(
     val id: Int,
     val title: String,
     val description: String,
-    val posterResId: Int,  // Идентификатор ресурса для постера
+    val posterResId: Int,
     val premiere: String,
     val country: String,
     val genre: String,

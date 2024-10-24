@@ -1,131 +1,130 @@
 package com.example.movieapp.data
 
 import com.example.movieapp.R
-import com.example.movieapp.data.Movie
 
 object MovieRepository {
     val movies = listOf(
         Movie(
             id = 1,
-            title = "Inception",
-            description = "A mind-bending thriller",
-            posterResId = R.drawable.poster1, // ваш постер
-            premiere = "2010",
-            country = "USA",
-            genre = "Sci-Fi",
-            director = "Christopher Nolan",
-            starring = "Leonardo DiCaprio, Joseph Gordon-Levitt",
-            duration = "148 minutes"
+            title = "Нефть",
+            description = "Начало XX века. Предприниматель Дэниэл Плэйнвью ищет золото и серебро, а находит нефть. За несколько лет он становится преуспевающим нефтяником, разработавшим уже несколько скважин. Однажды он узнает про новое месторождение. Уцепившись за этот шанс разбогатеть, Дэниэл делает всё, чтобы добиться своего.",
+            posterResId = R.drawable.poster1,
+            premiere = "2007",
+            country = "США",
+            genre = "Драма",
+            director = "Пол Томас Андерсон",
+            starring = "Дэниэл Дэй-Льюис, Пол Дано, Кевин Дж. О’Коннор",
+            duration = "2 ч 38 мин"
         ),
         Movie(
             id = 2,
-            title = "The Dark Knight",
-            description = "A dark tale of a hero in Gotham",
+            title = "Малхолланд Драйв",
+            description = "Загадочная девушка, после автомобильной аварии страдающая потерей памяти, выбирает себе имя Рита с рекламного плаката к фильму с Ритой Хейворт и пытается начать новую жизнь в Голливуде. Но тайны прошлого неотступно преследуют ее. Кто были те двое мужчин, что сидели в одной машине с ней и погибли в аварии? Почему полиция подозревает, что она была ими похищена? И случайно ли в ее жизни появляется новая подруга, начинающая актриса Бетти?",
             posterResId = R.drawable.poster2,
-            premiere = "2008",
-            country = "USA",
-            genre = "Action",
-            director = "Christopher Nolan",
-            starring = "Christian Bale, Heath Ledger",
-            duration = "152 minutes"
+            premiere = "2001",
+            country = "США, Франция",
+            genre = "триллер, драма, детектив",
+            director = "Дэвид Линч",
+            starring = "Наоми Уоттс, Лаура Хэрринг, Джастин Теру, Энн Миллер",
+            duration = "2 ч 27 мин"
         ),
-        // Добавьте остальные 8 фильмов с их параметрами
+
         Movie(
             id = 3,
-            title = "Interstellar",
-            description = "A journey beyond the stars",
+            title = "Унесённые призраками",
+            description = "Тихиро с мамой и папой переезжает в новый дом. Заблудившись по дороге, они оказываются в странном пустынном городе, где их ждет великолепный пир. Родители с жадностью набрасываются на еду и к ужасу девочки превращаются в свиней, став пленниками злой колдуньи Юбабы. Теперь, оказавшись одна среди волшебных существ и загадочных видений, Тихиро должна придумать, как избавить своих родителей от чар коварной старухи.",
             posterResId = R.drawable.poster3,
-            premiere = "2014",
-            country = "USA",
-            genre = "Sci-Fi",
-            director = "Christopher Nolan",
-            starring = "Matthew McConaughey, Anne Hathaway",
-            duration = "169 minutes"
+            premiere = "2001",
+            country = "Япония",
+            genre = "аниме, мультфильм, фэнтези, приключения, семейный",
+            director = "Хаяо Миядзаки",
+            starring = "Руми Хиираги, Мию Ирино, Мари Нацуки",
+            duration = "2 ч 4 мин"
         ),
         Movie(
             id = 4,
-            title = "The Prestige",
-            description = "Two magicians' rivalry",
+            title = "Догвилль",
+            description = "Юная Грейс, сбежав от банды гангстеров, находит спасение в маленьком городке Догвилль где-то в Скалистых горах. Местные жители – один прекраснее другого – готовы ее укрыть. А взамен им совсем ничего не надо, ну, разве что помочь по дому или присмотреть за детьми. Но постепенно милый Догвилль превращается для девушки в тюрьму.",
             posterResId = R.drawable.poster4,
-            premiere = "2006",
-            country = "USA",
-            genre = "Drama",
-            director = "Christopher Nolan",
-            starring = "Hugh Jackman, Christian Bale",
-            duration = "130 minutes"
+            premiere = "2003",
+            country = "Дания, Нидерланды, Швеция, Германия, Великобритания, Франция, Финляндия, Норвегия, Италия",
+            genre = "триллер, драма, детектив",
+            director = "Ларс фон Триер",
+            starring = "Николь Кидман, Пол Беттани, Харриет Андерссон, Патриша Кларксон",
+            duration = "2 ч 58 мин"
         ),
 
         Movie(
             id = 5,
-            title = "Dunkirk",
-            description = "WWII evacuation of Dunkirk",
+            title = "Аватар",
+            description = "Бывший морпех Джейк Салли прикован к инвалидному креслу. Несмотря на немощное тело, Джейк в душе по-прежнему остается воином. Он получает задание совершить путешествие в несколько световых лет к базе землян на планете Пандора, где корпорации добывают редкий минерал, имеющий огромное значение для выхода Земли из энергетического кризиса.",
             posterResId = R.drawable.poster5,
-            premiere = "2017",
-            country = "USA",
-            genre = "War",
-            director = "Christopher Nolan",
-            starring = "Fionn Whitehead, Tom Hardy",
-            duration = "106 minutes"
+            premiere = "2009",
+            country = "США, Великобритания",
+            genre = "фантастика, боевик, драма, приключения",
+            director = "Джеймс Кэмерон",
+            starring = "Сэм Уортингтон, Зои Салдана, Сигурни Уивер, Стивен Лэнг",
+            duration = "2 ч 42 мин"
         ),
         Movie(
             id = 6,
-            title = "Dunkirk",
-            description = "WWII evacuation of Dunkirk",
+            title = "Старикам тут не место",
+            description = "Обычный работяга обнаруживает в пустыне гору трупов, набитый героином грузовик и соблазнительную сумму в два миллиона долларов наличными. Он решает взять деньги себе, и результатом становится волна насилия, которую не может остановить вся полиция Западного Техаса.",
             posterResId = R.drawable.poster6,
-            premiere = "2017",
-            country = "USA",
-            genre = "War",
-            director = "Christopher Nolan",
-            starring = "Fionn Whitehead, Tom Hardy",
-            duration = "106 minutes"
+            premiere = "2007",
+            country = "США",
+            genre = "триллер, драма, криминал, вестерн",
+            director = "Итан Коэн, Джоэл Коэн",
+            starring = "Томми Ли Джонс, Джош Бролин, Хавьер Бардем",
+            duration = "2 ч 2 мин"
         ),
         Movie(
             id = 7,
-            title = "Dunkirk",
-            description = "WWII evacuation of Dunkirk",
+            title = "Вечное сияние чистого разума",
+            description = "Застенчивый и меланхоличный Джоэл живёт ничем не примечательной серой и унылой жизнью. Но однажды вместо привычного рабочего маршрута молодой человек вдруг садится на электричку в другом направлении и устремляется к морю. На песчаном берегу Джоэл замечает девушку с ярко-синими волосами. На обратном пути они знакомятся в вагоне электрички и парень понимает, что у них с Клементиной очень много общего, как будто он уже знает эту девушку. Совсем скоро Джоэл поймёт, что действительно был знаком с ней, более того - они были парой.",
             posterResId = R.drawable.poster7,
-            premiere = "2017",
-            country = "USA",
-            genre = "War",
-            director = "Christopher Nolan",
-            starring = "Fionn Whitehead, Tom Hardy",
-            duration = "106 minutes"
+            premiere = "2004",
+            country = "США",
+            genre = "мелодрама, фантастика, драма",
+            director = "Мишель Гондри",
+            starring = "Джим Керри, Кейт Уинслет, Кирстен Данст, Марк Руффало",
+            duration = "1 ч 48 мин"
         ),
         Movie(
             id = 8,
-            title = "Dunkirk",
-            description = "WWII evacuation of Dunkirk",
+            title = "Безумный Макс: Дорога ярости",
+            description = "Преследуемый призраками прошлого Макс уверен, что лучший способ выжить — скитаться в одиночестве. Но он попадает в плен и вынужденно присоединяется к бунтарям, бегущим через пустыню от тирании Несмертного Джо. Они забрали у него кое-что очень ценное, и разъярённый диктатор бросает все силы в погоню за мятежниками.",
             posterResId = R.drawable.poster8,
-            premiere = "2017",
-            country = "USA",
-            genre = "War",
-            director = "Christopher Nolan",
-            starring = "Fionn Whitehead, Tom Hardy",
-            duration = "106 minutes"
+            premiere = "2015",
+            country = "Австралия, США",
+            genre = "боевик, фантастика",
+            director = "Джордж Миллер",
+            starring = "Том Харди, Шарлиз Терон, Николас Холт, Хью Кияс-Бёрн",
+            duration = "2 ч"
         ),
         Movie(
             id = 9,
-            title = "Dunkirk",
-            description = "WWII evacuation of Dunkirk",
+            title = "Начало",
+            description = "Кобб – талантливый вор, лучший из лучших в опасном искусстве извлечения: он крадет ценные секреты из глубин подсознания во время сна, когда человеческий разум наиболее уязвим. Редкие способности Кобба сделали его ценным игроком в привычном к предательству мире промышленного шпионажа, но они же превратили его в извечного беглеца и лишили всего, что он когда-либо любил. И вот у Кобба появляется шанс исправить ошибки. Его последнее дело может вернуть все назад, но для этого ему нужно совершить невозможное – инициацию. Вместо идеальной кражи Кобб и его команда спецов должны будут провернуть обратное. Теперь их задача – не украсть идею, а внедрить ее. Если у них получится, это и станет идеальным преступлением.Но никакое планирование или мастерство не могут подготовить команду к встрече с опасным противником, который, кажется, предугадывает каждый их ход. Врагом, увидеть которого мог бы лишь Кобб.",
             posterResId = R.drawable.poster9,
-            premiere = "2017",
-            country = "USA",
-            genre = "War",
-            director = "Christopher Nolan",
-            starring = "Fionn Whitehead, Tom Hardy",
-            duration = "106 minutes"
+            premiere = "2010",
+            country = "США, Великобритания",
+            genre = "фантастика, боевик, триллер, драма, детектив",
+            director = "Кристофер Нолан",
+            starring = "Леонардо ДиКаприо, Джозеф Гордон-Левитт, Эллиот Пейдж, Том Харди",
+            duration = "2 ч 28 мин"
         ),
         Movie(
             id = 10,
-            title = "Dunkirk",
-            description = "WWII evacuation of Dunkirk",
+            title = "Однажды в… Голливуде",
+            description = "1969 год, золотой век Голливуда уже закончился. Известный актёр Рик Далтон и его дублер Клифф Бут пытаются найти свое место в стремительно меняющемся мире киноиндустрии.",
             posterResId = R.drawable.poster10,
-            premiere = "2017",
-            country = "USA",
-            genre = "War",
-            director = "Christopher Nolan",
-            starring = "Fionn Whitehead, Tom Hardy",
-            duration = "106 minutes"
+            premiere = "2019",
+            country = "США, Великобритания, Китай",
+            genre = "драма, комедия",
+            director = "Квентин Тарантино",
+            starring = "Леонардо ДиКаприо, Брэд Питт, Марго Робби, Эмиль Хирш",
+            duration = "2 ч 41 мин"
         ),
 
     )
