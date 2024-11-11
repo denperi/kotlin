@@ -14,6 +14,6 @@ fun ProfileScreen() {
             .padding(16.dp)
     ) {
         Text(text = "Профиль", style = androidx.compose.material3.MaterialTheme.typography.titleLarge)
-        // Здесь вы можете добавить элементы профиля в будущем
+
     }
 }
