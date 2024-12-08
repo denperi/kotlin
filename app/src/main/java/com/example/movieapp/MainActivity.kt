@@ -18,6 +18,9 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.movieapp.data.MovieViewModelFactory
+import com.example.movieapp.data.ProfilePreferences
+import com.example.movieapp.viewmodel.ProfileViewModel
+import com.example.movieapp.viewmodel.ProfileViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 
@@ -52,9 +55,20 @@ fun MovieApp() {
                 val movieId = backStackEntry.arguments?.getString("movieId")?.toInt() ?: 1
                 MovieDetailScreen(movieId, navController, viewModel)
             }
-            composable("profile") { ProfileScreen() }
+            composable("profile") {
+                val context = LocalContext.current
+                val profileViewModel: ProfileViewModel = viewModel(factory = ProfileViewModelFactory(ProfilePreferences(context)))
+                ProfileScreen(navController = navController, viewModel = profileViewModel)
+            }
             composable("favorites") {
                 FavoritesScreen(movieViewModel = viewModel, navController = navController)
+            }
+            composable("editProfile") {
+                val context = LocalContext.current
+                val profileViewModel: ProfileViewModel = viewModel(factory = ProfileViewModelFactory(
+                    ProfilePreferences(context)
+                ))
+                EditProfileScreen(navController = navController, viewModel = profileViewModel)
             }
         }
     }
