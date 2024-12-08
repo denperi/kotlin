@@ -20,6 +20,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 
 
+
 class ProfileViewModel(private val profilePreferences: ProfilePreferences) : ViewModel() {
 
     private val _profile = MutableStateFlow(Profile())
@@ -117,6 +118,7 @@ fun saveUriToFile(context: Context, uri: Uri): Uri? {
         null
     }
 }
+
 
 class ProfileViewModelFactory(private val profilePreferences: ProfilePreferences) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

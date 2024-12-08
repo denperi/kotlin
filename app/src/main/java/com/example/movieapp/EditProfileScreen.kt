@@ -28,6 +28,10 @@ import com.example.movieapp.data.Profile
 import com.example.movieapp.viewmodel.ProfileViewModel
 import com.example.movieapp.viewmodel.saveBitmapToUri
 import com.example.movieapp.viewmodel.saveUriToFile
+import android.app.TimePickerDialog
+import androidx.compose.material.icons.filled.AccessTime
+import com.example.movieapp.data.setReminder
+import java.util.Calendar
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,6 +45,8 @@ fun EditProfileScreen(navController: NavController, viewModel: ProfileViewModel)
     var resumeUrl by remember { mutableStateOf(TextFieldValue("")) }
     var avatarUri by remember { mutableStateOf<Uri?>(null) }
     var showAvatarDialog by remember { mutableStateOf(false) }
+    var favoriteClassTime by remember { mutableStateOf(TextFieldValue("")) }
+    var favoriteClassTimeError by remember { mutableStateOf(false) }
 
 
     LaunchedEffect(Unit) {
@@ -156,6 +162,43 @@ fun EditProfileScreen(navController: NavController, viewModel: ProfileViewModel)
 
             Spacer(modifier = Modifier.height(16.dp))
 
+
+            fun isValidTime(time: String): Boolean {
+                val regex = Regex("^([01]\\d|2[0-3]):([0-5]\\d)$")
+                return regex.matches(time)
+            }
+            OutlinedTextField(
+                value = favoriteClassTime,
+                onValueChange = {
+                    favoriteClassTime = it
+                    favoriteClassTimeError = !isValidTime(it.text)
+                },
+                label = { Text("Время любимой пары") },
+                isError = favoriteClassTimeError,
+                trailingIcon = {
+                    IconButton(onClick = {
+                        val calendar = Calendar.getInstance()
+                        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+                        val minute = calendar.get(Calendar.MINUTE)
+                        TimePickerDialog(context, { _, selectedHour, selectedMinute ->
+                            favoriteClassTime = TextFieldValue(String.format("%02d:%02d", selectedHour, selectedMinute))
+                            favoriteClassTimeError = false
+                        }, hour, minute, true).show()
+                    }) {
+                        Icon(Icons.Default.AccessTime, contentDescription = "Выбрать время")
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            if (favoriteClassTimeError) {
+                Text(
+                    text = "Некорректный формат времени",
+                    color = MaterialTheme.colorScheme.error,
+                    style = MaterialTheme.typography.bodySmall
+                )
+            }
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
@@ -169,17 +212,20 @@ fun EditProfileScreen(navController: NavController, viewModel: ProfileViewModel)
                 }
 
                 Button(onClick = {
-                    viewModel.saveProfile(
-                        Profile(
-                            fullName = fullName.text,
-                            avatarUri = avatarUri?.toString() ?: "",
-                            resumeUrl = resumeUrl.text,
-                            position = position.text
+                    if (!favoriteClassTimeError && favoriteClassTime.text.isNotBlank()) {
+                        viewModel.saveProfile(
+                            Profile(
+                                fullName = fullName.text,
+                                avatarUri = avatarUri?.toString() ?: "",
+                                resumeUrl = resumeUrl.text,
+                                position = position.text,
+                                favoriteClassTime = favoriteClassTime.text
+                            )
                         )
-                    )
-
+                        setReminder(context, favoriteClassTime.text, fullName.text)
                     navController.popBackStack()
                     viewModel.loadProfile()
+                    }
                 }) {
                     Text("Готово")
                 }
