@@ -1,7 +1,11 @@
 package com.example.movieapp.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "movies")
 data class Movie(
-    val id: Int,
+    @PrimaryKey val id: Int,
     val title: String,
     val description: String?,
     val premiere: Int,
@@ -11,4 +15,11 @@ data class Movie(
     val posterUrl: String,
     val director: String,
     val starring: String
+)
+
+data class Profile(
+    val fullName: String = "",
+    val avatarUri: String = "",
+    val resumeUrl: String = "",
+    val position: String = ""
 )
